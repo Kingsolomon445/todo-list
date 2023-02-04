@@ -1,9 +1,11 @@
 # todo-list
-This web app &amp; api can be used to keep track of your to do list (made by django)
+This web app &amp; rest api can be used to keep track of your to do list (made by django)
+
+Api Documentation is on website and viewable upon login
 
 # STEPS
 
-git clone https://github.com/Kingsolomon445/content-aggregator
+git clone https://github.com/Kingsolomon445/todo-list
 
 ## From the project root directory
 
