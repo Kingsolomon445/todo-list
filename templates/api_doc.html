@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-3 mb-3">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center mb-3">Getting Started</h1>
+            <p>To use the API, you will need to obtain an authentication token by making a request to the endpoint <pre>/api/api-token-auth/</pre>. You will need to pass your username and password in the request body in json format. The obtained token should then be included in the header of each subsequent request as Authorization: Token <span style="background-color: #999999">token</span>.</p>
+        </div>
+        <div class="col-12">
+            <h1 class="text-center mb-3">API Documentation</h1>
+            <p>This page will provide a detailed explanation of the API endpoints for the superToDo app.</p>
+            <h2>Endpoints</h2>
+            <ul>
+                <li>
+                    <h3>Add a Task</h3>
+                    <p>To add a task, make a POST request to the following endpoint:</p>
+                    <pre>/api/tasks/</pre>
+                    <p>In the request body, include the following data:</p>
+                    <pre>
+{
+    "title": "Task Title",
+    "description": "Task Description",
+    "due_date": "YYYY-MM-DD"
+}
+                    </pre>
+                    <p>This will add the task with the given title and description to your list of tasks.</p>
+                </li>
+                <li>
+                    <h3>Get All Tasks</h3>
+                    <p>To retrieve all tasks, make a GET request to the following endpoint:</p>
+                    <pre>/api/tasks/</pre>
+                    <p>This will return a JSON list of all tasks and their respective data.</p>
+                </li>
+                <li>
+                    <h3>Get a Task by ID</h3>
+                    <p>To retrieve a specific task by ID, make a GET request to the following endpoint:</p>
+                    <pre>/api/tasks/&lt;id&gt;/</pre>
+                    <p>Replace &lt;id&gt; with the ID of the task you wish to retrieve. This will return a JSON object of the task data.</p>
+                </li>
+                <li>
+                    <h3>Update a Task</h3>
+                    <p>To update a task, make a PUT request to the following endpoint:</p>
+                    <pre>/api/tasks/&lt;id&gt;/</pre>
+                    <p>Replace &lt;id&gt; with the ID of the task you wish to update. In the request body, include the updated task data in the same format as when adding a task.</p>
+                </li>
+                <li>
+                    <h3>Delete a Task</h3>
+                    <p>To delete a task, make a DELETE request to the following endpoint:</p>
+                    <pre>/api/tasks/&lt;id&gt;/</pre>
+                    <p>Replace &lt;id&gt; with the ID of the task you wish to delete. This will remove the task from your list of tasks.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

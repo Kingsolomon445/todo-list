@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="list-group">
+
+        {% for task in tasks %}
+        <div class="task">
+          <a href="{% url 'manager:task' task.pk %}" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{ task.title }}</h5>
+              {% if task.completed %}
+                <small class="check-complete"><i class="fa-solid fa-circle-check"></i></small>
+              {% else %}
+                <small class="text-muted">Not Completed</small>
+              {% endif %}
+            </div>
+            <p class="mb-1">{{ task.description }}</p>
+            {% if not task.completed %}
+                <small class="text-muted">Due {{ task.due_date }}</small>
+            {% endif %}
+          </a>
+            <a href="" class="delete-task" data-bs-toggle="modal" data-bs-target="#deleteTaskModal-{{ task.id }}">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </a>
+            </div>
+
+            <!-- Delete Task Modal -->
+      <div class="modal fade" id="deleteTaskModal-{{ task.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteTaskModalLabel">Delete Task</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete the task "{{ task.title }}"?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <form action="{% url 'manager:delete-task' task.id %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+        {% endfor %}
+
+        </div>
+
+{% endblock %}
