@@ -8,9 +8,11 @@ class TaskViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+    throttle_scope = 'user'
 
 
 class UserViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    throttle_scope = 'user'
