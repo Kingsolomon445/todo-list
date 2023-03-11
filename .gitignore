@@ -2,6 +2,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.sqlite3
+venv/
+.idea/
+**/migrations/*.py
+!**/migrations/__init__.py
 
 # C extensions
 *.so
@@ -37,7 +42,7 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
+# Unit tests / coverage reports
 htmlcov/
 .tox/
 .nox/

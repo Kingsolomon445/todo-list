@@ -155,7 +155,7 @@ REST_FRAMEWORK = {
 }
 
 DJOSER = {
-    "USER_ID_FIELD": "username"  # Unique identifier
+    "USER_ID_FIELD": "id"  # Unique identifier
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
